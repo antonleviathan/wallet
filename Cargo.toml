@@ -135,9 +135,9 @@ abscissa_tokio = { git = "https://github.com/iqlusioninc/abscissa.git", rev = "f
 zewif = { git = "https://github.com/zcash/zewif.git", rev = "f84f80612813ba00a0a8a9a5f060bd217fa981cc" }
 zewif-zcashd = { git = "https://github.com/zcash/zewif-zcashd.git", rev = "9c72d1805c269f88ea5caa4eb33c6d38013b9776" }
 
-zaino-fetch = { git = "https://github.com/Electric-Coin-Company/zaino.git", rev = "1004733f3303b1c48b6df6db610c54401554683c" }
-zaino-proto = { git = "https://github.com/Electric-Coin-Company/zaino.git", rev = "1004733f3303b1c48b6df6db610c54401554683c" }
-zaino-state = { git = "https://github.com/Electric-Coin-Company/zaino.git", rev = "1004733f3303b1c48b6df6db610c54401554683c" }
+zaino-fetch = { git = "https://github.com/antonleviathan/zaino.git", rev = "0d8ce2f7f6ba96da4e3e06a8d9a7b6cc3f425bf0" }
+zaino-proto = { git = "https://github.com/antonleviathan/zaino.git", rev = "0d8ce2f7f6ba96da4e3e06a8d9a7b6cc3f425bf0" }
+zaino-state = { git = "https://github.com/antonleviathan/zaino.git", rev = "0d8ce2f7f6ba96da4e3e06a8d9a7b6cc3f425bf0" }
 
 [profile.release]
 debug = "line-tables-only"
