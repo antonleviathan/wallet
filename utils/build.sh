@@ -1,4 +1,5 @@
 #!/bin/sh
+
 set -e
 
 DIR="$( cd "$( dirname "$0" )" && pwd )"
@@ -11,9 +12,7 @@ export DOCKER_BUILDKIT=1
 export SOURCE_DATE_EPOCH=1
 
 echo $DOCKERFILE
-
 docker build -f "$DOCKERFILE" "$REPO_ROOT" \
 	--platform "$PLATFORM" \
-	--output type=oci,rewrite-timestamp=true,force-compression=true,tar=false,dest=$OCI_OUTPUT/zallet,name=zallet \
+	--output type=oci,rewrite-timestamp=true,force-compression=true,dest=$OCI_OUTPUT/zallet.tar,name=zallet \
 	"$@"
-

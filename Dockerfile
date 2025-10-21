@@ -48,12 +48,15 @@ RUN --mount=type=cache,target=/usr/local/cargo/registry \
       && install -D -m 0755 /usr/src/app/target/${TARGET_ARCH}/release/zallet /usr/local/bin/zallet
 
 # --- Stage 2: Minimal runtime with stagex ---
+# `stagex/core-user-runtime` sets the user to non-root by default
 FROM stagex/core-user-runtime AS runtime
 COPY --from=gcc  /usr/lib/libgcc_s.so.1 /usr/lib/
 COPY --from=gcc  /usr/lib/libstdc++.so.6 /usr/lib/
 COPY --from=musl /lib/ld-musl-x86_64.so.1 /lib/
 COPY --from=libunwind /lib/libunwind.so.8 /lib/
 COPY --from=builder /usr/local/bin/zallet /usr/local/bin/
+
+WORKDIR /var/lib/zallet
 
 ENTRYPOINT ["/usr/local/bin/zallet"]
 

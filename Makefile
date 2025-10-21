@@ -1,6 +1,11 @@
 # Makefile
 SHELL := /bin/bash
 .SHELLFLAGS := -eu -o pipefail -c
+IMAGE_NAME := zallet
+IMAGE_TAG := latest
+
+.PHONY: all build import tag
+all: build import tag
 
 .PHONY: build
 build:
@@ -14,3 +19,9 @@ build:
 		printf '%s\n' "$$out"; \
 		exit 1; \
 	fi
+
+
+.PHONY: import
+import:
+	docker load -i build/oci/zallet.tar
+	docker tag $(IMAGE_NAME):latest $(IMAGE_NAME):$(IMAGE_TAG)
