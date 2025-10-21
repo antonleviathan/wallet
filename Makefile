@@ -4,8 +4,8 @@ SHELL := /bin/bash
 IMAGE_NAME := zallet
 IMAGE_TAG := latest
 
-.PHONY: all build import tag
-all: build import tag
+.PHONY: all build import extract-binary
+all: build import extract-binary
 
 .PHONY: build
 build:
@@ -25,3 +25,8 @@ build:
 import:
 	docker load -i build/oci/zallet.tar
 	docker tag $(IMAGE_NAME):latest $(IMAGE_NAME):$(IMAGE_TAG)
+
+
+.PHONY: extract-binary
+extract-binary:
+	@sh utils/extract.sh
